@@ -3,11 +3,16 @@ import React from 'react';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import ImgSearch from '../../assets/images/Search.png';
 
+import {useTranslation} from 'react-i18next';
+
 
 const SearchScreen = ({navigation}) => {
+
+  const {t} = useTranslation();
+
   return (
     <View style={styles.container}>
-      <Text style={styles.Search}>Search Screen</Text>
+      <Text style={styles.Search}>{t("Search Screen")}</Text>
       <View style={styles.searchBox}>
         <AntDesign
           name="search1"
@@ -15,7 +20,7 @@ const SearchScreen = ({navigation}) => {
           color="#000000"
           style={styles.searchIcon}
         />
-        <TextInput style={styles.input} placeholder="Search" />
+        <TextInput style={styles.input} placeholder={t("Search")} />
         <Image
           source={ImgSearch}
           style={styles.ImgSearch}

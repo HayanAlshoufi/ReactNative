@@ -3,8 +3,13 @@ import React from 'react';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import burger from '../../assets/images/burger.jpg';
 
+import {useTranslation} from 'react-i18next';
+
+
 
 const Meal1 = ({navigation}) => {
+
+  const {t}=useTranslation();
   return (
     <View style={styles.container}>
       <Image
@@ -12,7 +17,7 @@ const Meal1 = ({navigation}) => {
           style={styles.ImgBurger}
           resizeMode="contain"
         />
-      <Text style={styles.Burger}>Burger</Text>
+      <Text style={styles.Burger}>{t("Burger")}</Text>
 
     </View>
   );

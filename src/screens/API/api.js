@@ -36,7 +36,7 @@ const Api = () => {
         body:'New Body for the data.',
       })
     })
-      .then(Response => console.log(Response.data))
+      .then(Response => console.log(Response))
       .catch(Error => console.error(Error));
   };
 

@@ -7,9 +7,11 @@ import Entypo from 'react-native-vector-icons/Entypo';
 
 import {useNavigation} from '@react-navigation/native';
 
+import {useTranslation} from 'react-i18next';
 
 const Categories = () => {
 
+  const {t} = useTranslation();
 
   const navigation = useNavigation();
 
@@ -20,7 +22,7 @@ const Categories = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.head}>Categories</Text>
+      <Text style={styles.head}>{t("Categories")}</Text>
 
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
       <TouchableOpacity onPress={onNewPage2}>
@@ -32,7 +34,7 @@ const Categories = () => {
             style={styles.icon}
 
           />
-          <Text style={styles.text}>Burger</Text>
+          <Text style={styles.text}>{t("Burger")}</Text>
         </View>
         </TouchableOpacity>
 
@@ -43,7 +45,7 @@ const Categories = () => {
             color="#000000"
             style={styles.icon}
           />
-          <Text style={styles.text}>Pizza</Text>
+          <Text style={styles.text}>{t("Pizza")}</Text>
         </View>
 
         <View style={styles.box}>
@@ -53,7 +55,7 @@ const Categories = () => {
             color="#000000"
             style={styles.icon}
           />
-          <Text style={styles.text}>Noodles</Text>
+          <Text style={styles.text}>{t("Noodles")}</Text>
         </View>
 
         <View style={styles.box}>
@@ -63,7 +65,7 @@ const Categories = () => {
             color="#000000"
             style={styles.icon}
           />
-          <Text style={styles.text}>Cake</Text>
+          <Text style={styles.text}>{t("Cake")}</Text>
         </View>
 
         <View style={styles.box}>
@@ -73,7 +75,7 @@ const Categories = () => {
             color="#000000"
             style={styles.icon}
           />
-          <Text style={styles.text}>Burger</Text>
+          <Text style={styles.text}>{t("Burger")}</Text>
         </View>
 
         <View style={styles.box}>
@@ -83,7 +85,7 @@ const Categories = () => {
             color="#000000"
             style={styles.icon}
           />
-          <Text style={styles.text}>Burger</Text>
+          <Text style={styles.text}>{t("Burger")}</Text>
         </View>
 
         <View style={styles.box}>
@@ -93,7 +95,7 @@ const Categories = () => {
             color="#000000"
             style={styles.icon}
           />
-          <Text style={styles.text}>Burger</Text>
+          <Text style={styles.text}>{t("Burger")}</Text>
         </View>
 
         <View style={styles.box}>
@@ -103,7 +105,7 @@ const Categories = () => {
             color="#000000"
             style={styles.icon}
           />
-          <Text style={styles.text}>Burger</Text>
+          <Text style={styles.text}>{t("Burger")}</Text>
         </View>
 
         <View style={styles.box}>
@@ -113,7 +115,7 @@ const Categories = () => {
             color="#000000"
             style={styles.icon}
           />
-          <Text style={styles.text}>Burger</Text>
+          <Text style={styles.text}>{t("Burger")}</Text>
         </View>
 
         <View style={styles.box}>
@@ -123,7 +125,7 @@ const Categories = () => {
             color="#000000"
             style={styles.icon}
           />
-          <Text style={styles.text}>Burger</Text>
+          <Text style={styles.text}>{t("Burger")}</Text>
         </View>
 
         <View style={styles.box}>
@@ -133,7 +135,7 @@ const Categories = () => {
             color="#000000"
             style={styles.icon}
           />
-          <Text style={styles.text}>Burger</Text>
+          <Text style={styles.text}>{t("Burger")}</Text>
         </View>
       </ScrollView>
     </View>

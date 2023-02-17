@@ -18,6 +18,10 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Himenus from '../../assets/images/himenus.png';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import VirtualizedList from '../../VirtualizedList';
+/////
+import {useTranslation} from 'react-i18next';
+/////
+import Test from '../Test';
 
 import {useSelector, useDispatch} from 'react-redux';
 
@@ -26,17 +30,23 @@ const himenusSite = () => {
 };
 
 const HomeScreen = ({navigation}) => {
+  /////
+  const {t} = useTranslation();
+  /////
   //Redux test
   const name = useSelector(state => state.user.name);
   const pass = useSelector(state => state.user.pass);
   console.log('User Name: ' + name);
   console.log('Password: ' + pass);
 
+
+
   return (
     <View style={styles.container}>
       <VirtualizedList>
         <View style={{flexDirection: 'row'}}>
           <Image source={Himenus} style={styles.Logo} />
+     <Test/>
           <TouchableOpacity onPress={himenusSite}>
             <MaterialCommunityIcons
               name="web"
@@ -55,25 +65,25 @@ const HomeScreen = ({navigation}) => {
             style={styles.searchIcon}
           />
 
-          <TextInput style={styles.input} placeholder="Search" />
+          <TextInput style={styles.input} placeholder={t('Search')} />
         </View>
 
         <Categories />
         <OfferSlider />
         <FeaturedRow
           id="123"
-          title="Featured"
-          description="Paid placements from our partners"
+          title={t("Burger 1")}
+          description={t("delicious burger")}
         />
         <FeaturedRow
           id="1234"
-          title="Tasty Discounts"
-          description="Everyone's been enjoying these juicy discounts!"
+          title={t("Burger 2")}
+          description={t("delicious burger")}
         />
         <FeaturedRow
           id="12345"
-          title="Offers near you!"
-          description="Why not support your local restaurant tonight!"
+          title={t("Burger 3")}
+          description={t("delicious burger")}
         />
       </VirtualizedList>
     </View>
@@ -122,6 +132,36 @@ const styles = StyleSheet.create({
     marginRight: 30,
     marginTop: 10,
     color: '#a80302',
+  },
+  selectEnglish: {
+    width: '7%',
+    height: 27,
+    borderWidth: 3,
+    borderRadius: 5,
+    borderColor: '#a80302',
+    position: 'absolute',
+    right: 100,
+    top: 16,
+  },
+  selectArabic: {
+    width: '7%',
+    height: 27,
+    borderWidth: 3,
+    borderRadius: 5,
+    borderColor: '#a80302',
+    position: 'absolute',
+    right: 63,
+    top: 16,
+  },
+  English: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    color: 'black',
+  },
+  Arabic: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    color: 'black',
   },
 });
 

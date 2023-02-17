@@ -133,12 +133,15 @@ import Fontisto from 'react-native-vector-icons/Fontisto';
 
 import {useNavigation} from '@react-navigation/native';
 
-
+import {useTranslation} from 'react-i18next';
 
 
 
 
 const Meal2 = () => {
+
+
+  const {t}=useTranslation();
   const cart = useSelector(state => state.cart.cart);
   console.log(cart);
   const dispatch = useDispatch();
@@ -148,7 +151,7 @@ const Meal2 = () => {
       image:
         'https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_960_720.jpg',
 
-      name: 'Chicken Burger',
+      name: "Chicken Burger",
       price: '20 AED',
     },
     {
@@ -248,7 +251,7 @@ const Meal2 = () => {
             fontWeight: 'bold',
             color: 'black',
           }}>
-          Items
+          {t("Items")}
         </Text>
         <View style={styles.Cart}>
           <TouchableOpacity onPress={onPres}>
@@ -287,7 +290,7 @@ const Meal2 = () => {
                         fontWeight:'bold',
                         color:'black',
                       }}>
-                      REMOVE FROM CART
+                      {t("REMOVE FROM CART")}
                     </Text>
                   </Pressable>
                 ) : (    
@@ -303,7 +306,7 @@ const Meal2 = () => {
                         fontWeight:'bold',
 
                       }}>
-                 ADD TO CART
+                 {t("ADD TO CART")}
                     </Text>
                   </Pressable>
                 )}

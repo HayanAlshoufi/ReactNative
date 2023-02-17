@@ -5,7 +5,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import {useNavigation} from '@react-navigation/native';
 
-
+import {useTranslation} from 'react-i18next';
 
 const showAlert = () =>
   Alert.alert(
@@ -14,6 +14,9 @@ const showAlert = () =>
   );
 
 const ProfileScreen = () => {
+
+const {t}=useTranslation();
+
 
   const navigation = useNavigation();
 
@@ -24,10 +27,10 @@ const ProfileScreen = () => {
   return (
     <View style={styles.container}>
       <Image source={Img} style={styles.userImage} />
-      <Text style={styles.userName}>User Name</Text>
+      <Text style={styles.userName}>{t("User Name")}</Text>
       <Text>0561692951</Text>
       <View style={styles.showMore}>
-        <Button color="#ff5c5c" title="SHOW MORE" onPress={showAlert}/>
+        <Button color="#ff5c5c" title={t("SHOW MORE")} onPress={showAlert}/>
       </View>
       <TouchableOpacity onPress={onNewPage}>
             <MaterialIcons

@@ -21,8 +21,14 @@ import {
   removeFromCart,
 } from '../../store/reducers';
 
+
+import {useTranslation} from 'react-i18next';
+
+
 const ShoppingCart = ({navigation}) => {
 
+
+  const {t}=useTranslation();
 
   const removeItemFromCart = item => {
     dispatch(removeFromCart(item));
@@ -149,7 +155,7 @@ const increaseQuantity = item => {
                        textAlign:'center',
                        fontWeight:'bold',
                       }}>
-                      REMOVE
+                      {t("REMOVE")}
                     </Text>
                   </Pressable>
                   </Pressable>

@@ -21,7 +21,12 @@ import Img9 from '../../assets/images/9.png';
 import Img10 from '../../assets/images/10.png';
 import Img11 from '../../assets/images/11.png';
 
+
+import {useTranslation} from 'react-i18next';
+
+
 const VirtualizedList = ({children}) => {
+
   return (
     <NativeList
       data={[]}
@@ -68,89 +73,90 @@ const keyExtractor = () => {
 
 const NotificationScreen = ({navigation}) => {
 
+  const {t}=useTranslation();
 
 
 
   return (
     <View style={styles.container}>
       <VirtualizedList>
-        <Text style={styles.Notification}>Notifications</Text>
+        <Text style={styles.Notification}>{t("Notifications")}</Text>
         <View style={styles.boxes}>
           <View style={styles.box}>
-            <Text style={styles.Bug}>Burger 1</Text>
+            <Text style={styles.Bug}>{t("Burger 1")}</Text>
             <View style={styles.Btn}>
-        <Button title="Add To Cart" style={styles.Btn} color="green" />
+        <Button title={t("Add To Cart")} style={styles.Btn} color="green" />
       </View>
             <Image source={Img1} style={styles.mealImage} />
           </View>
           <View style={styles.box}>
-            <Text style={styles.Bug}>Burger 2</Text>
+            <Text style={styles.Bug}>{t("Burger 2")}</Text>
             <View style={styles.Btn}>
         <Button 
-        title="Add To Cart" style={styles.Btn} color="green" />
+        title={t("Add To Cart")} style={styles.Btn} color="green" />
       </View>
             <Image source={Img2} style={styles.mealImage} />
           </View>
           <View style={styles.box}>
-            <Text style={styles.Bug}>Burger 3</Text>
+            <Text style={styles.Bug}>{t("Burger 3")}</Text>
             <View style={styles.Btn}>
-        <Button title="Add To Cart" style={styles.Btn} color="green" />
+        <Button title={t("Add To Cart")} style={styles.Btn} color="green" />
       </View>
             <Image source={Img3} style={styles.mealImage} />
           </View>
           <View style={styles.box}>
-            <Text style={styles.Bug}>Burger 4</Text>
+            <Text style={styles.Bug}>{t("Burger 4")}</Text>
             <View style={styles.Btn}>
-        <Button title="Add To Cart" style={styles.Btn} color="green" />
+        <Button title={t("Add To Cart")} style={styles.Btn} color="green" />
       </View>
             <Image source={Img4} style={styles.mealImage} />
           </View>
           <View style={styles.box}>
-            <Text style={styles.Bug}>Burger 5</Text>
+            <Text style={styles.Bug}>{t("Burger 5")}</Text>
             <View style={styles.Btn}>
-        <Button title="Add To Cart" style={styles.Btn} color="green" />
+        <Button title={t("Add To Cart")} style={styles.Btn} color="green" />
       </View>
             <Image source={Img5} style={styles.mealImage} />
           </View>
           <View style={styles.box}>
-            <Text style={styles.Bug}>Burger 6</Text>
+            <Text style={styles.Bug}>{t("Burger 6")}</Text>
             <View style={styles.Btn}>
-        <Button title="Add To Cart" style={styles.Btn} color="green" />
+        <Button title={t("Add To Cart")} style={styles.Btn} color="green" />
       </View>
             <Image source={Img6} style={styles.mealImage} />
           </View>
           <View style={styles.box}>
-            <Text style={styles.Bug}>Burger 7</Text>
+            <Text style={styles.Bug}>{t("Burger 7")}</Text>
             <View style={styles.Btn}>
-        <Button title="Add To Cart" style={styles.Btn} color="green" />
+        <Button title={t("Add To Cart")} style={styles.Btn} color="green" />
       </View>
             <Image source={Img7} style={styles.mealImage} />
           </View>
           <View style={styles.box}>
-            <Text style={styles.Bug}>Burger 8</Text>
+            <Text style={styles.Bug}>{t("Burger 8")}</Text>
             <View style={styles.Btn}>
-        <Button title="Add To Cart" style={styles.Btn} color="green" />
+        <Button title={t("Add To Cart")} style={styles.Btn} color="green" />
       </View>
             <Image source={Img8} style={styles.mealImage} />
           </View>
           <View style={styles.box}>
-            <Text style={styles.Bug}>Burger 9</Text>
+            <Text style={styles.Bug}>{t("Burger 9")}</Text>
             <View style={styles.Btn}>
-        <Button title="Add To Cart" style={styles.Btn} color="green" />
+        <Button title={t("Add To Cart")} style={styles.Btn} color="green" />
       </View>
             <Image source={Img9} style={styles.mealImage} />
           </View>
           <View style={styles.box}>
-            <Text style={styles.Bug}>Burger 10</Text>
+            <Text style={styles.Bug}>{t("Burger 10")}</Text>
             <View style={styles.Btn}>
-        <Button title="Add To Cart" style={styles.Btn} color="green" />
+        <Button title={t("Add To Cart")} style={styles.Btn} color="green" />
       </View>
             <Image source={Img10} style={styles.mealImage} />
           </View>
           <View style={styles.box}>
-            <Text style={styles.Bug}>Burger 11</Text>
+            <Text style={styles.Bug}>{t("Burger 11")}</Text>
             <View style={styles.Btn}>
-        <Button title="Add To Cart" style={styles.Btn} color="green" />
+        <Button title={t("Add To Cart")} style={styles.Btn} color="green" />
       </View>
             <Image source={Img11} style={styles.mealImage} />
           </View>
