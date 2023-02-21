@@ -10,6 +10,7 @@ import {
   Linking,
   Touchable,
   rules,
+  Dimensions,
 } from 'react-native';
 import Logo from '../../assets/images/InLogic-IT-Solution.png';
 import CustomInput from '../../components/CustomInput';
@@ -21,6 +22,8 @@ import {useForm, Controller} from 'react-hook-form';
 import {useSelector,useDispatch} from 'react-redux';
 import {setName,setPass} from '../../store/reducerReg';
 
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 const SignInScreen = () => { 
   const {
@@ -87,7 +90,7 @@ const SignInScreen = () => {
               value={value}
             />
           )}
-          name="username" 
+          name="username"
         />
         {errors.username && <Text style={styles.input}>This is required.</Text>}
 
