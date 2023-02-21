@@ -24,6 +24,9 @@ import {
 
 import {useTranslation} from 'react-i18next';
 
+
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 const ShoppingCart = ({navigation}) => {
   const removeItemFromCart = item => {
     dispatch(removeFromCart(item));

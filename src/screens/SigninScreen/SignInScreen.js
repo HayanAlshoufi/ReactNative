@@ -22,8 +22,8 @@ import {useForm, Controller} from 'react-hook-form';
 import {useSelector,useDispatch} from 'react-redux';
 import {setName,setPass} from '../../store/reducerReg';
 
-const windowWidth = Dimensions.get('window').width;
-const windowHeight = Dimensions.get('window').height;
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 
 const SignInScreen = () => { 
   const {
@@ -128,7 +128,7 @@ const SignInScreen = () => {
           type="TERTIARY"
         />
 
-        <SocialSignInButton />
+        <SocialSignInButton/>
       </View>
     </ScrollView>
   );
@@ -137,12 +137,12 @@ const SignInScreen = () => {
 const styles = StyleSheet.create({
   root: {
     alignItems: 'center',
-    padding: 20,
+    padding: hp('2'),
   },
   Logo: {
-    width: '60%',
-    maxWidth: 300,
-    maxHeight: 200,
+    width: wp('55%'),
+    maxWidth: wp('300'),
+    maxHeight: hp('150'),
   },
   input: {
     color: 'red',

@@ -4,6 +4,12 @@ import Google from '../../assets/images/Google.png';
 import Facebook from '../../assets/images/Facebook.png';
 import Apple from '../../assets/images/Apple.png';
 
+
+
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
+
+
 const SocialSignInButton = () => {
     const onSignInGoogle = () => {
         Linking.openURL('https://www.google.com/');
@@ -21,7 +27,7 @@ const SocialSignInButton = () => {
         <View style={{
             flex: 1,
         }}>
-            <Text style={{ textAlign: 'center', marginTop: 100,color:'gray' }}>------------------------------ or Login With ------------------------------</Text>
+            <Text style={{ textAlign: 'center', marginTop: hp(7),color:'gray' }}>------------------------------ or Login With ------------------------------</Text>
 
             <View style={styles.socialLoginView}>
 
@@ -57,19 +63,19 @@ export default SocialSignInButton
 
 const styles = StyleSheet.create({
     Google: {
-        width: 52,
-        height: 55,
+        width: wp(11),
+        height: hp(6),
 
 
     },
     Facebook: {
-        width: 50,
-        height: 60,
+        width: wp(12),
+        height: hp(6.5),
 
     },
     Apple: {
-        width: 50,
-        height: 55,
+        width: wp(11),
+        height: hp(6),
 
     },
 
@@ -77,7 +83,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around',
         flex: 1,
-        marginTop: 20,
+        marginTop: hp(1),
 
     },
 });

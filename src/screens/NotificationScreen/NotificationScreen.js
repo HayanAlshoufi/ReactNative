@@ -217,7 +217,7 @@ const styles = StyleSheet.create({
     position:'absolute',
     top:45,
     left:10,
-    width:'35%',
+    width:'48%',
   },
 });
 

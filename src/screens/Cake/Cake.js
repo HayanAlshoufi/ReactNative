@@ -175,7 +175,7 @@ const Cake = () => {
                     <Text
                       style={{
                         borderColor: 'gray',
-                        width: 112,
+                        width: 170,
                         borderWidth: 1,
                         marginVertical: 10,
                         padding: 5,

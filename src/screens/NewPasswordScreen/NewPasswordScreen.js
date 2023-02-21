@@ -16,6 +16,11 @@ import SocialSignInButton from '../../components/SocialSignInButton/SocialSignIn
 import {useNavigation} from '@react-navigation/native';
 import {useForm, Controller} from 'react-hook-form';
 
+
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
+
+
 const NewPasswordScreen = () => {
   const {
     control,
@@ -102,36 +107,36 @@ const NewPasswordScreen = () => {
 
 const styles = StyleSheet.create({
   root: {
-    padding: 20,
-    marginVertical: 30,
-    paddingTop: 40,
+    padding: wp(5),
+    marginVertical: wp(5),
+    paddingTop: hp(3),
   },
 
   title: {
     textAlign: 'center',
-    fontSize: 30,
+    fontSize: wp(7),
     fontWeight: 'bold',
     color: '#a80302',
-    marginTop: 20,
-    marginBottom: 30,
+    marginTop: hp(3),
+    marginBottom: wp(6),
   },
 
   SignIn: {
     textAlign: 'center',
     fontWeight: 'bold',
-    fontSize: 18,
-    marginVertical: 10,
+    fontSize: wp(5),
+    marginVertical: wp(3),
     color: '#a80302',
   },
 
   code: {
     textAlign: 'left',
-    marginLeft: 9,
+    marginLeft: wp(2),
     color:'black',
   },
   input: {
     color: 'red',
-    marginLeft: 9,
+    marginLeft: wp(2),
     alignSelf: 'flex-start',
     alignItems: 'flex-start',
   },

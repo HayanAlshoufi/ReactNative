@@ -16,6 +16,7 @@ import SocialSignInButton from '../../components/SocialSignInButton/SocialSignIn
 import {useNavigation} from '@react-navigation/native';
 import {useForm, Controller} from 'react-hook-form';
 
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 
 const ForgotPasswordScreen = () => {
@@ -82,30 +83,30 @@ const ForgotPasswordScreen = () => {
 const styles = StyleSheet.create({
   root: {
     alignItems: 'center',
-    padding: 20,
-    marginVertical: 30,
-    paddingTop: 40,
+    padding: wp(5),
+    marginVertical: wp(6),
+    paddingTop: wp(8),
   },
 
   title: {
-    fontSize: 30,
+    fontSize: wp(7),
     fontWeight: 'bold',
     color: '#a80302',
-    marginTop: 20,
-    marginBottom: 10,
-    bottom:40,
+    marginTop: hp(3),
+    marginBottom: hp(2),
+    bottom:hp(5),
   },
 
   SignIn: {
     fontWeight: 'bold',
-    fontSize: 18,
-    marginVertical: 10,
+    fontSize: wp(5),
+    marginVertical: hp(1),
     color: 'black',
   },
 
   input: {
     color: 'red',
-    marginLeft:9,
+    marginLeft:hp(1),
     alignSelf:'flex-start',
     alignItems:'flex-start'
     

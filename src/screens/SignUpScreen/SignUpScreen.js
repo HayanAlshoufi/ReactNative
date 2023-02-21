@@ -21,6 +21,9 @@ import {useSelector,useDispatch} from 'react-redux';
 import {setUserName,setUserPass,setEmail,setRePass} from '../../store/reducerReg';
 
 
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
+
 const SignUpScreen = () => {
   const {
     control,
@@ -144,7 +147,7 @@ const SignUpScreen = () => {
               onChangeText={onChange}
               value={value}
             />
-          )}
+          )} 
           name="password"
         />
         {errors.password && <Text style={styles.input}>This is required.</Text>}
@@ -205,20 +208,20 @@ const SignUpScreen = () => {
 const styles = StyleSheet.create({
   root: {
     alignItems: 'center',
-    padding: 20,
+    padding: wp('5'),
   },
 
   title: {
-    fontSize: 30,
+    fontSize: wp('7'),
     fontWeight: 'bold',
     color: '#a80302',
-    marginTop: 20,
-    marginBottom: 30,
+    marginTop: wp(5),
+    marginBottom: wp(6),
   },
 
   text: {
     color: 'gray',
-    marginVertical: 20,
+    marginVertical: wp(4),
   },
   link: {
     color: '#FDB075',
@@ -226,15 +229,15 @@ const styles = StyleSheet.create({
 
   SignIn: {
     fontWeight: 'bold',
-    fontSize: 18,
-    marginVertical: 20,
+    fontSize: wp(4),
+    marginVertical: wp(4),
     color:'gray'
   },
 
   SignInLink: {
     color: 'red',
     fontWeight: 'bold',
-    fontSize: 19,
+    fontSize: wp(4),
   },
   
   input: {

@@ -17,6 +17,12 @@ import {useForm, Controller} from 'react-hook-form';
 
 import {useSelector, useDispatch} from 'react-redux';
 
+
+
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
+
+
 const ConfirmEmailScreen = () => {
   const uName = useSelector(state => state.user.uName);
   const email = useSelector(state => state.user.email);
@@ -108,30 +114,30 @@ const ConfirmEmailScreen = () => {
 const styles = StyleSheet.create({
   root: {
     alignItems: 'center',
-    padding: 20,
-    marginVertical: 30,
-    paddingTop: 40,
+    padding: wp(5),
+    marginVertical: wp(6),
+    paddingTop: hp(5),
   },
 
   title: {
-    fontSize: 30,
+    fontSize: wp(7),
     fontWeight: 'bold',
     color: '#a80302',
-    marginTop: 20,
-    marginBottom: 10,
-    bottom:40,
+    marginTop: hp(4),
+    marginBottom: hp(1),
+    bottom:hp(5),
   },
 
   SignIn: {
     fontWeight: 'bold',
-    fontSize: 18,
-    marginVertical: 10,
+    fontSize: wp(4.3),
+    marginVertical: wp(3),
     color: 'red',
   },
 
   input: {
     color: 'red',
-    marginLeft: 9,
+    marginLeft: wp(1),
     alignSelf: 'flex-start',
     alignItems: 'flex-start',
   },
