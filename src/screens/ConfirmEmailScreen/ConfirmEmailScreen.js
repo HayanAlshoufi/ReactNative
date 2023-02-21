@@ -116,16 +116,17 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 30,
     fontWeight: 'bold',
-    color: '#051C60',
+    color: '#a80302',
     marginTop: 20,
-    marginBottom: 30,
+    marginBottom: 10,
+    bottom:40,
   },
 
   SignIn: {
     fontWeight: 'bold',
     fontSize: 18,
     marginVertical: 10,
-    color: '#051C60',
+    color: 'red',
   },
 
   input: {

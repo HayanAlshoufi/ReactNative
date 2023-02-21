@@ -118,6 +118,7 @@ import {
   SafeAreaView,
   FlatList as NativeList,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
@@ -130,18 +131,12 @@ import {
 import VirtualizedList from '../../VirtualizedList';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 
-
 import {useNavigation} from '@react-navigation/native';
 
 import {useTranslation} from 'react-i18next';
 
-
-
-
 const Meal2 = () => {
-
-
-  const {t}=useTranslation();
+  const {t} = useTranslation();
   const cart = useSelector(state => state.cart.cart);
   console.log(cart);
   const dispatch = useDispatch();
@@ -151,63 +146,63 @@ const Meal2 = () => {
       image:
         'https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_960_720.jpg',
 
-      name: "Chicken Burger",
-      price: '20 AED',
+      name: 'Chicken Burger',
+      price: '20',
     },
     {
       id: '1',
       image:
         'https://cdn.pixabay.com/photo/2021/01/19/08/47/sandwich-5930496_960_720.jpg',
       name: 'Beef Burger',
-      price: '25 AED',
+      price: '25',
     },
     {
       id: '2',
       image:
-      'https://cdn.pixabay.com/photo/2017/08/04/11/35/burger-2579902_960_720.jpg',
+        'https://cdn.pixabay.com/photo/2017/08/04/11/35/burger-2579902_960_720.jpg',
 
-      name: 'Cheese Burger ',
-      price: '15 AED',
+      name: 'Cheese Burger',
+      price: '15',
     },
     {
       id: '3',
       image:
-      'https://cdn.pixabay.com/photo/2018/02/09/08/44/burger-3141127_960_720.jpg',
+        'https://cdn.pixabay.com/photo/2018/02/09/08/44/burger-3141127_960_720.jpg',
 
-      name: 'Vegetable Burger ',
-      price: '17 AED',
+      name: 'Vegetable Burger',
+      price: '17',
     },
     {
       id: '4',
       image:
-      'https://cdn.pixabay.com/photo/2021/01/22/04/24/sandwich-5939093_960_720.jpg',
+        'https://cdn.pixabay.com/photo/2021/01/22/04/24/sandwich-5939093_960_720.jpg',
 
-      name: 'Cheese Burger ',
-      price: '13 AED',
+      name: 'Cheese Burger',
+      price: '13',
     },
     {
       id: '5',
       image:
-      'https://cdn.pixabay.com/photo/2022/05/05/05/48/burger-7175344_960_720.jpg',
+        'https://cdn.pixabay.com/photo/2022/05/05/05/48/burger-7175344_960_720.jpg',
 
-      name: 'Meat Burger ',
-      price: '37 AED',
+      name: 'Meat Burger',
+      price: '37',
     },
     {
       id: '6',
       image:
-      'https://cdn.pixabay.com/photo/2016/11/17/04/22/burger-1830695_960_720.jpg',
+        'https://cdn.pixabay.com/photo/2016/11/17/04/22/burger-1830695_960_720.jpg',
 
-      name: 'Black Burger ',
-      price: '55 AED',
+      name: 'Black Burger',
+      price: '55',
     },
     {
       id: '7',
       image:
-      'https://cdn.pixabay.com/photo/2022/04/30/08/42/burger-7165152_960_720.jpg',
+        'https://cdn.pixabay.com/photo/2022/04/30/08/42/burger-7165152_960_720.jpg',
 
-      name: 'Beef Burger ',
-      price: '66 AED',
+      name: 'Beef Burger',
+      price: '66',
     },
   ];
   const addItemToCart = item => {
@@ -227,23 +222,17 @@ const Meal2 = () => {
     }
   };
 
-
-
-
-  
-  
   const navigation = useNavigation();
-  
-  const onPres = ()=> {
+
+  const onPres = () => {
     //validate user
+    console.log('cart');
     navigation.navigate('Cart');
-    
   };
 
-  
   return (
     <View>
-      <VirtualizedList>
+      <View>
         <Text
           style={{
             textAlign: 'center',
@@ -251,14 +240,20 @@ const Meal2 = () => {
             fontWeight: 'bold',
             color: 'black',
           }}>
-          {t("Items")}
+          {t('Items')}
         </Text>
-        <View style={styles.Cart}>
-          <TouchableOpacity onPress={onPres}>
-            <Fontisto name="shopping-basket-add" size={40} color="green" />
-          </TouchableOpacity>
-        </View>
-        <View style={{marginTop: 25}} >
+        
+      </View>
+      <TouchableOpacity onPress={onPres}  style={styles.Cart}>
+            <Fontisto
+              name="shopping-basket-add"
+              size={40}
+              color="#a80302"
+              style={styles.icon}
+            />
+          </TouchableOpacity> 
+      <VirtualizedList>
+        <View style={{marginTop: 25}}>
           {data.map(item => (
             <Pressable
               key={item.id}
@@ -270,12 +265,14 @@ const Meal2 = () => {
                 />
               </View>
 
-              <View >
-                <Text style={{fontWeight: 'bold', fontSize: 20, color:'black'}}>
-                  {item.name}
+              <View>
+                <Text
+                  style={{fontWeight: 'bold', fontSize: 20, color: 'black'}}>
+                  {t(item.name)}
                 </Text>
-                <Text style={{fontWeight: 'bold', fontSize: 15, color:'green'}}>
-                  {item.price}
+                <Text
+                  style={{fontWeight: 'bold', fontSize: 15, color: 'green'}}>
+                  {item.price} {t('AED')}
                 </Text>
                 {cart.some(value => value.id == item.id) ? (
                   <Pressable onPress={() => removeItemFromCart(item)}>
@@ -286,27 +283,26 @@ const Meal2 = () => {
                         marginVertical: 10,
                         padding: 5,
                         backgroundColor: '#c50c0a',
-                        width:150,
-                        fontWeight:'bold',
-                        color:'black',
+                        width: 165,
+                        fontWeight: 'bold',
+                        color: 'black',
                       }}>
-                      {t("REMOVE FROM CART")}
+                      {t('REMOVE FROM CART')}
                     </Text>
                   </Pressable>
-                ) : (    
+                ) : (
                   <Pressable onPress={() => addItemToCart(item)}>
                     <Text
                       style={{
                         borderColor: 'gray',
-                        width:101,
+                        width: 112,
                         borderWidth: 1,
                         marginVertical: 10,
                         padding: 5,
                         backgroundColor: '#00a340',
-                        fontWeight:'bold',
-
+                        fontWeight: 'bold',
                       }}>
-                 {t("ADD TO CART")}
+                      {t('ADD TO CART')}
                     </Text>
                   </Pressable>
                 )}
@@ -314,8 +310,9 @@ const Meal2 = () => {
             </Pressable>
           ))}
 
-
-<Text style={{color:'black',textAlign:"center"}}>-----------------------------------------------------------------------</Text>
+          <Text style={{color: 'black', textAlign: 'center'}}>
+            -----------------------------------------------------------------------
+          </Text>
 
           {/* {cart.map((item, index) => (
             <View style={{padding: 10, marginVertical:-50}} key={index}>
@@ -382,7 +379,8 @@ const Meal2 = () => {
             </View>
           ))} */}
         </View>
-      </VirtualizedList>
+      </VirtualizedList> 
+          
     </View>
   );
 };
@@ -394,5 +392,9 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 15,
     top: 10,
+    zIndex:999
+  },
+  icon: {
+
   },
 });

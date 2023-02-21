@@ -1,5 +1,6 @@
 import { View, Text, TextInput, StyleSheet } from 'react-native'
 import React from 'react'
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 const CustomInput = ({value , onChangeText , placeholder,secureTextEntry}) => {
   return (
@@ -9,6 +10,7 @@ const CustomInput = ({value , onChangeText , placeholder,secureTextEntry}) => {
       onChangeText={onChangeText}
       placeholder={placeholder}
       style={styles.input}
+      placeholderTextColor={'grey'}
       secureTextEntry={secureTextEntry}
       />
     </View>
@@ -25,7 +27,8 @@ const styles = StyleSheet.create({
     margin:5,
     },
     input:{
-      color:'blue',
+      color:'black',
+      
     },
 });
 

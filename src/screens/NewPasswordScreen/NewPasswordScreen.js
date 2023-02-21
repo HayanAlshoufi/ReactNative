@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 30,
     fontWeight: 'bold',
-    color: '#051C60',
+    color: '#a80302',
     marginTop: 20,
     marginBottom: 30,
   },
@@ -121,12 +121,13 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 18,
     marginVertical: 10,
-    color: '#051C60',
+    color: '#a80302',
   },
 
   code: {
     textAlign: 'left',
     marginLeft: 9,
+    color:'black',
   },
   input: {
     color: 'red',

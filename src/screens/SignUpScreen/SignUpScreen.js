@@ -211,7 +211,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 30,
     fontWeight: 'bold',
-    color: '#051C60',
+    color: '#a80302',
     marginTop: 20,
     marginBottom: 30,
   },
@@ -228,10 +228,11 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 18,
     marginVertical: 20,
+    color:'gray'
   },
 
   SignInLink: {
-    color: 'blue',
+    color: 'red',
     fontWeight: 'bold',
     fontSize: 19,
   },

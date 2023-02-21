@@ -22,7 +22,14 @@ import ForgotPasswordScreen from '../screens/ForgotPasswordScreen';
 import NewPasswordScreen from '../screens/NewPasswordScreen';
 import Meal1 from '../screens/Meal1';
 import Meal2 from '../screens/Meal2';
+import Pizza from '../screens/Pizza';
+import Noodles from '../screens/Noodles';
+import Cake from '../screens/Cake';
+
+
 import Api from '../screens/API/api';
+
+
 
 
 const Stack = createNativeStackNavigator();
@@ -73,6 +80,10 @@ const Navigation = () => {
         <Stack.Screen name="NewPassword" component={NewPasswordScreen} />
         <Stack.Screen name="Meal1" component={Meal1} />
         <Stack.Screen name="Meal2" component={Meal2} />
+        <Stack.Screen name="Pizza" component={Pizza} />
+        <Stack.Screen name="Noodles" component={Noodles} />
+        <Stack.Screen name="Cake" component={Cake} />
+
         <Stack.Screen name="Api" component={Api} />
         <Stack.Screen name="HomeScreen" component={HomeNavigation} />
       </Stack.Navigator>
@@ -83,14 +94,34 @@ const Navigation = () => {
 const HomeNavigation = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Home"
-      activeColor="red"
-      inactiveColor="red"
+      // tabBarOptions={{
+      //   activeTintColor: 'green',
+      //   inactiveTintColor: 'green',
+      //   indicatorStyle: {
+      //     backgroundColor: 'green',
+      //     height: 5,
+      //   },
+      //   style: {
+      //     elevation: 10,
+      //     backgroundColor: 'green',
+      //   },
+      //   labelStyle: {
+      //     color: '#bc0302',
+      //     fontWeight: 'bold',
+      //     fontSize: 12,
+      //   },
+      // }}
+
       screenOptions={({route, navigation}) => {
         return {
           tabBarHideOnKeyboard: true,
           headerShown: false,
           tabBarLabel: navigation.isFocused() ? route.name : '',
+          tabBarLabelStyle: {
+            color: '#bc0302',
+            fontWeight: 'bold',
+            fontSize: 12,
+          },
         };
       }}>
       <Tab.Screen
@@ -100,6 +131,8 @@ const HomeNavigation = () => {
           tabBarIcon: ({focused, color}) => {
             return <FontAwesome5 name="home" size={25} color={color} />;
           },
+          tabBarActiveTintColor: '#a80302',
+          tabBarInactiveTintColor: '#272726',
         }}
       />
       <Tab.Screen
@@ -116,6 +149,8 @@ const HomeNavigation = () => {
               />
             );
           },
+          tabBarActiveTintColor: '#a80302',
+          tabBarInactiveTintColor: '#272726',
         }}
       />
 
@@ -133,6 +168,8 @@ const HomeNavigation = () => {
               />
             );
           },
+          tabBarActiveTintColor: '#a80302',
+          tabBarInactiveTintColor: '#272726',
         }}
       />
       <Tab.Screen
@@ -149,6 +186,8 @@ const HomeNavigation = () => {
               />
             );
           },
+          tabBarActiveTintColor: '#a80302',
+          tabBarInactiveTintColor: '#272726',
         }}
       />
       <Tab.Screen
@@ -165,6 +204,8 @@ const HomeNavigation = () => {
               />
             );
           },
+          tabBarActiveTintColor: '#a80302',
+          tabBarInactiveTintColor: '#272726',
         }}
       />
     </Tab.Navigator>

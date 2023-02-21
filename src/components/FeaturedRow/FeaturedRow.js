@@ -103,6 +103,8 @@ const styles = StyleSheet.create({
   },
   description:{
     left:11,
+    color:"gray",
+    bottom:15,
   },
 
   box: {

@@ -132,36 +132,7 @@ const styles = StyleSheet.create({
     marginRight: 30,
     marginTop: 10,
     color: '#a80302',
-  },
-  selectEnglish: {
-    width: '7%',
-    height: 27,
-    borderWidth: 3,
-    borderRadius: 5,
-    borderColor: '#a80302',
-    position: 'absolute',
-    right: 100,
-    top: 16,
-  },
-  selectArabic: {
-    width: '7%',
-    height: 27,
-    borderWidth: 3,
-    borderRadius: 5,
-    borderColor: '#a80302',
-    position: 'absolute',
-    right: 63,
-    top: 16,
-  },
-  English: {
-    textAlign: 'center',
-    fontWeight: 'bold',
-    color: 'black',
-  },
-  Arabic: {
-    textAlign: 'center',
-    fontWeight: 'bold',
-    color: 'black',
+    
   },
 });
 

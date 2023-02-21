@@ -21,7 +21,7 @@ const SocialSignInButton = () => {
         <View style={{
             flex: 1,
         }}>
-            <Text style={{ textAlign: 'center', marginTop: 100 }}>------------------------------ or Login With ------------------------------</Text>
+            <Text style={{ textAlign: 'center', marginTop: 100,color:'gray' }}>------------------------------ or Login With ------------------------------</Text>
 
             <View style={styles.socialLoginView}>
 

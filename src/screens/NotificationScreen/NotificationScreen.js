@@ -215,9 +215,9 @@ const styles = StyleSheet.create({
   },
   Btn:{
     position:'absolute',
-    top:50,
+    top:45,
     left:10,
-    width:'30%',
+    width:'35%',
   },
 });
 

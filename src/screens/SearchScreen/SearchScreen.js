@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '100%',
-    backgroundColor: '#8fcbbc',
+    backgroundColor: 'white',
   },
 
   searchBox: {
@@ -50,10 +50,10 @@ const styles = StyleSheet.create({
     margin: 20,
     marginLeft: 16,
     marginTop:100,
-    elevation: 10,
+    elevation: 20,
   },
   searchIcon: {
-    color: 'blue',
+    color: '#a80302',
   },
   input: {
     marginLeft: 3,
