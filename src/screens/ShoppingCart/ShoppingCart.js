@@ -10,8 +10,10 @@ import {
   Pressable,
   SafeAreaView,
   FlatList as NativeList,
+  TouchableOpacity
 } from 'react-native';
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import Fontisto from 'react-native-vector-icons/Fontisto';
 import {useDispatch, useSelector} from 'react-redux';
 import VirtualizedList from '../../VirtualizedList';
 import utf8 from 'utf-8';
@@ -24,10 +26,14 @@ import {
 
 import {useTranslation} from 'react-i18next';
 
-
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 const ShoppingCart = ({navigation}) => {
+
+  const [cartCount,setCartCount] = useState(0) ;
   const removeItemFromCart = item => {
     dispatch(removeFromCart(item));
   };
@@ -46,10 +52,37 @@ const ShoppingCart = ({navigation}) => {
   const cart = useSelector(state => state.cart.cart);
   const dispatch = useDispatch();
 
+
+  const getTotalQuantity = () => {
+    let total = 0
+    cart.forEach(item => {
+      total += item.quantity
+    })
+    setCartCount(total);
+  }
+
+useEffect(()=>{
+getTotalQuantity();
+},[cart])
+
   const {t} = useTranslation();
+
+
 
   return (
     <View style={styles.container}>
+          <View style={styles.total}>
+      <TouchableOpacity>
+            <Fontisto
+              name="shopping-basket-add"
+              size={wp(10)}
+              color="#a80302"
+              style={styles.icon}
+            />
+            <Text style={styles.counter}>{cartCount}</Text>
+
+          </TouchableOpacity>
+          </View>
       <VirtualizedList>
         {/* <Pressable>
                   <Text
@@ -75,23 +108,30 @@ const ShoppingCart = ({navigation}) => {
         {cart.map((item, index) => (
           <View
             style={{
-              padding: 10,
-              paddingVertical: 0,
-              paddingTop: 0,
-              marginBottom: -40,
-              top:10
+              padding: wp(3),
+              paddingVertical: wp(0),
+              paddingTop: hp(0),
+              marginBottom: hp(-5),
+              top: hp(1),
             }}
-            key={index}> 
-            <View style={{top:3, left: 120,position:'absolute'}}> 
-            <Text style={{fontWeight: 'bold', fontSize: 20, color: 'black'}}>
-             {t(item.name)}
-            </Text> 
-              <Text style={{fontWeight: 'bold', fontSize: 15, color: 'green'}}>
+            key={index}>
+            <View style={{top: hp(1), left: wp(30), position: 'absolute'}}>
+              <Text
+                style={{fontWeight: 'bold', fontSize: wp(5), color: 'black'}}>
+                {t(item.name)}
+              </Text>
+              <Text
+                style={{fontWeight: 'bold', fontSize: wp(4), color: 'green'}}>
                 {item.price} {t('AED')}
-              </Text> 
+              </Text>
             </View>
             <Image
-              style={{width: 100, height: 100, borderRadius: 8, marginTop: 6}}
+              style={{
+                width: wp(25),
+                height: hp(12),
+                borderRadius: hp(1),
+                marginTop: hp(1),
+              }}
               source={{uri: item.image}}
             />
             <Pressable
@@ -100,18 +140,18 @@ const ShoppingCart = ({navigation}) => {
                 marginTop: 20,
                 alignItems: 'center',
                 backgroundColor: 'green',
-                borderRadius: 5,
-                width: 100,
-                bottom: 60,
-                left: 111,
-                height:35
+                borderRadius: wp(1),
+                width: wp(24),
+                bottom: hp(7),
+                left: hp(14),
+                height: hp(4.3),
               }}>
               <Pressable onPress={() => decreaseQuantity(item)}>
                 <Text
                   style={{
-                    fontSize: 25,
+                    fontSize: wp(5),
                     color: 'white',
-                    paddingHorizontal: 10,
+                    paddingHorizontal: wp(2.6),
                     fontWeight: 'bold',
                   }}>
                   -
@@ -121,9 +161,9 @@ const ShoppingCart = ({navigation}) => {
               <Pressable>
                 <Text
                   style={{
-                    fontSize: 20,
+                    fontSize: wp(5),
                     color: 'white',
-                    paddingHorizontal: 10,
+                    paddingHorizontal: wp(2.5),
                     fontWeight: 'bold',
                   }}>
                   {item.quantity}
@@ -132,9 +172,9 @@ const ShoppingCart = ({navigation}) => {
               <Pressable onPress={() => increaseQuantity(item)}>
                 <Text
                   style={{
-                    fontSize: 20,
+                    fontSize: wp(5),
                     color: 'white',
-                    paddingHorizontal: 10,
+                    paddingHorizontal: wp(2.6),
                     fontWeight: 'bold',
                   }}>
                   +
@@ -146,31 +186,50 @@ const ShoppingCart = ({navigation}) => {
                   style={{
                     flexDirection: 'row',
                     borderColor: 'gray',
-                    borderWidth: 1,
-                    borderRadius: 5,
-                    marginVertical: 10,
-                    padding: 5,
+                    borderRadius: wp(1),
+                    padding: wp(1),
                     backgroundColor: '#c50c0a',
-                    width: 100,
-                    height: 35,
+                    width: wp(24),
+                    height: hp(4.3),
                     fontWeight: 'bold',
                     color: 'black',
                     textAlign: 'center',
                     fontWeight: 'bold',
-                    left:50,
+                    left: wp(12),
                   }}>
-                  {t('REMOVE')}  
-
+                  {t('REMOVE')}
                 </Text>
-                
               </Pressable>
             </Pressable>
           </View>
         ))}
       </VirtualizedList>
+    
     </View>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  icon:{
+    left:wp(82),
+    right: wp(1),
+    top: hp(1.5),
+  },
+  total:{
+    
+    
+  },
+  counter:{
+    color:'black',
+    fontSize:wp(3.5),
+    textAlign:"center",
+    borderRadius:wp(10),
+    width:20,
+    height:20,
+    backgroundColor:'#a80302',
+    position:"absolute",
+    left:wp(90.3),
+    top:hp(1.8)
+  },
+});
 export default ShoppingCart;

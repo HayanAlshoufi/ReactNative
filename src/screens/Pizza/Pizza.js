@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-import React from 'react';
+import React,{ useState, useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {
   addToCart,
@@ -24,7 +24,12 @@ import {useNavigation} from '@react-navigation/native';
 
 import {useTranslation} from 'react-i18next';
 
+import {widthPercentageToDP as wp , heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
+
+
 const Pizza = () => {
+
   const {t} = useTranslation();
   const cart = useSelector(state => state.cart.cart);
   console.log(cart);
@@ -110,6 +115,9 @@ const Pizza = () => {
       dispatch(decrementQuantity(item));
     }
   };
+  const handleIncrement = (item) => {
+    dispatch(increment(item)) 
+  };
 
   const navigation = useNavigation();
 
@@ -118,13 +126,17 @@ const Pizza = () => {
     navigation.navigate('Cart');
   };
 
+
+
+
   return (
     <View>
       <View>
+        
         <Text
           style={{
             textAlign: 'center',
-            fontSize: 26,
+            fontSize: wp(6),
             fontWeight: 'bold',
             color: 'black',
           }}>
@@ -133,37 +145,34 @@ const Pizza = () => {
         
       </View>
       <VirtualizedList>
-        <View style={{marginTop: 25}}>
+        <View style={{marginTop: hp(4)}}>
           {data.map(item => (
             <Pressable
               key={item.id}
               style={{flexDirection: 'row', alignItems: 'center'}}>
-              <View style={{margin: 10}}>
+              <View style={{margin: wp(3)}}>
                 <Image
-                  style={{width: 100, height: 100, borderRadius: 8}}
+                  style={{width: wp(23), height: wp(23), borderRadius: wp(2)}}
                   source={{uri: item.image}}
                 />
               </View>
-
               <View>
                 <Text
-                  style={{fontWeight: 'bold', fontSize: 20, color: 'black'}}>
+                  style={{fontWeight: 'bold', fontSize: wp(5), color: 'black'}}>
                   {t(item.name)}
                 </Text>
                 <Text
-                  style={{fontWeight: 'bold', fontSize: 15, color: 'green'}}>
+                  style={{fontWeight: 'bold', fontSize: wp(4), color: 'green'}}>
                   {item.price} {t('AED')}
                 </Text>
                 {cart.some(value => value.id == item.id) ? (
                   <Pressable onPress={() => removeItemFromCart(item)}>
                     <Text
                       style={{
-                        borderColor: 'gray',
-                        borderWidth: 1,
-                        marginVertical: 10,
-                        padding: 5,
+                        marginVertical: wp(2),
+                        padding: wp(1),
                         backgroundColor: '#c50c0a',
-                        width: 165,
+                        width: wp(40),
                         fontWeight: 'bold',
                         color: 'black',
                       }}>
@@ -174,11 +183,9 @@ const Pizza = () => {
                   <Pressable onPress={() => addItemToCart(item)}>
                     <Text
                       style={{
-                        borderColor: 'gray',
-                        width: 170,
-                        borderWidth: 1,
-                        marginVertical: 10,
-                        padding: 5,
+                        width: wp(27),
+                        marginVertical: wp(2),
+                        padding: wp(1),
                         backgroundColor: '#00a340',
                         fontWeight: 'bold',
                       }}>
@@ -201,7 +208,7 @@ const Pizza = () => {
           <TouchableOpacity onPress={onPres}>
             <Fontisto
               name="shopping-basket-add"
-              size={40}
+              size={wp(10)}
               color="#a80302"
               style={styles.icon}
             />
@@ -216,8 +223,8 @@ export default Pizza;
 const styles = StyleSheet.create({
   Cart: {
     position: 'absolute',
-    right: 15,
-    top: 10,
+    right: wp(4),
+    top: hp(2),
   },
   icon: {
 

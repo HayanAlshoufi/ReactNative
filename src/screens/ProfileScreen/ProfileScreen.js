@@ -7,6 +7,10 @@ import {useNavigation} from '@react-navigation/native';
 
 import {useTranslation} from 'react-i18next';
 
+
+import {widthPercentageToDP as wp , heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
+
 const showAlert = () =>
   Alert.alert(
     'User Information:',
@@ -35,11 +39,11 @@ const {t}=useTranslation();
       <TouchableOpacity onPress={onNewPage}>
             <MaterialIcons
               name="api"
-              size={50}
-              style={{color:'black',top:20}}
+              size={wp(12)}
+              style={{color:'black',top:hp(3)}}
             />
           </TouchableOpacity>
-          <Text style={{fontSize:20,color:'black',top:20,fontWeight:'bold'}}>- Api -</Text>
+          <Text style={{fontSize:wp(7),color:'black',top:hp(3),fontWeight:'bold'}}>- Api -</Text>
     </View>
   );
 };
@@ -49,25 +53,25 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     backgroundColor: '#8fcbbc',
-    padding: 20,
+    padding: wp(2),
   },
   userImage: {
     borderColor: '#FFF',
-    borderRadius: 85,
-    borderWidth: 3,
-    height: 150,
-    marginBottom: 50,
-    width: 150,
+    borderRadius: wp(20),
+    borderWidth: wp(1),
+    height: hp(18),
+    marginBottom: hp(10),
+    width: hp(18),
     position: 'relative',
-    top: 40,
+    top: hp(5),
   },
   userName: {
     fontWeight: 'bold',
-    fontSize: 23,
+    fontSize: wp(7),
     color: 'black',
   },
   showMore: {
-    margin: 15,
+    margin: wp(3),
   },
 });
 export default ProfileScreen;

@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
 
   SignIn: {
     fontWeight: 'bold',
-    fontSize: wp(4.3),
+    fontSize: wp(3.5),
     marginVertical: wp(3),
     color: 'red',
   },

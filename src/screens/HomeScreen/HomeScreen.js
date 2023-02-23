@@ -25,6 +25,10 @@ import Test from '../Test';
 
 import {useSelector, useDispatch} from 'react-redux';
 
+
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
+
 const himenusSite = () => {
   Linking.openURL('https://himenus.com/');
 };
@@ -50,7 +54,7 @@ const HomeScreen = ({navigation}) => {
           <TouchableOpacity onPress={himenusSite}>
             <MaterialCommunityIcons
               name="web"
-              size={40}
+              size={wp(10)}
               style={styles.myIcon}
             />
           </TouchableOpacity>
@@ -60,12 +64,12 @@ const HomeScreen = ({navigation}) => {
         <View style={styles.searchBox}>
           <AntDesign
             name="search1"
-            size={25}
+            size={wp(7)}
             color="#000000"
             style={styles.searchIcon}
           />
 
-          <TextInput style={styles.input} placeholder={t('Search')} />
+          <TextInput style={styles.input} placeholder={t('Search')} placeholderTextColor="gray" />
         </View>
 
         <Categories />
@@ -92,30 +96,28 @@ const HomeScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    width: '100%',
+    flex: 1, 
     backgroundColor: 'white',
   },
   searchBox: {
     flexDirection: 'row',
-    width: '93%',
-    height: 50,
+    height: hp(6),
     backgroundColor: 'white',
-    borderRadius: 30,
+    borderRadius: wp(10),
     alignItems: 'center',
     textAlign: 'center',
-    padding: 10,
-    margin: 20,
-    marginLeft: 16,
-    elevation: 10,
+    padding: wp(1),
+    margin: wp(5),
+    marginLeft: wp(4),
+    elevation: wp(3),
+
   },
   input: {
-    marginLeft: 3,
-    width: '90%',
-    fontSize: 19,
+    marginLeft: wp(1),
+    fontSize: wp(5),
     color: 'black',
-    marginBottom: -9,
-    marginTop: -10,
+    marginBottom: hp(-0.6),
+
   },
   searchIcon: {
     color: 'red',
@@ -123,14 +125,15 @@ const styles = StyleSheet.create({
 
   Logo: {
     resizeMode: 'contain',
-    height: 50,
-    width: 200,
-    marginRight: 175,
-    marginLeft: -20,
+    height: hp(6),
+    width: wp(47),
+    marginRight: wp(44),
+    marginLeft:wp(-5),
+    top:hp(0.5),
   },
   myIcon: {
-    marginRight: 30,
-    marginTop: 10,
+    marginRight: wp(1),
+    marginTop: hp(1),
     color: '#a80302',
     
   },

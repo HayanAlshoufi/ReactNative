@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
   Logo: {
     width: wp('55%'),
     maxWidth: wp('300'),
-    maxHeight: hp('150'),
+    maxHeight: hp('25'),
   },
   input: {
     color: 'red',

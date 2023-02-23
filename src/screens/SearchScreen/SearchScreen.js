@@ -6,6 +6,10 @@ import ImgSearch from '../../assets/images/Search.png';
 import {useTranslation} from 'react-i18next';
 
 
+
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
+
 const SearchScreen = ({navigation}) => {
 
   const {t} = useTranslation();
@@ -16,11 +20,11 @@ const SearchScreen = ({navigation}) => {
       <View style={styles.searchBox}>
         <AntDesign
           name="search1"
-          size={25}
+          size={wp(6)}
           color="#000000"
           style={styles.searchIcon}
         />
-        <TextInput style={styles.input} placeholder={t("Search")} />
+        <TextInput style={styles.input} placeholder={t("Search")} placeholderTextColor="gray"/>
         <Image
           source={ImgSearch}
           style={styles.ImgSearch}
@@ -34,49 +38,47 @@ const SearchScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: '100%',
+    width: wp('100%'),
     backgroundColor: 'white',
   },
 
   searchBox: {
     flexDirection: 'row',
-    width: '93%',
-    height: 50,
+    width: wp('93%'),
+    height: hp(6),
     backgroundColor: 'white',
-    borderRadius: 10,
+    borderRadius: hp(1),
     alignItems: 'center',
     textAlign: 'center',
-    padding: 10,
-    margin: 20,
-    marginLeft: 16,
-    marginTop:100,
-    elevation: 20,
+    padding: hp(1),
+    marginLeft: wp(4),
+    marginTop:hp(12),
+    elevation: hp(3),
   },
   searchIcon: {
     color: '#a80302',
   },
   input: {
-    marginLeft: 3,
-    width: '90%',
-    fontSize: 19,
+    marginRight: wp(3),
+    width: wp('90%'),
+    fontSize: wp(5),
     color: 'black',
-    marginBottom: -9,
-    marginTop: -10,
+    marginBottom: hp(-1.1),
   },
   Search: {
     fontWeight: 'bold',
-    fontSize: 23,
+    fontSize: wp(6),
     color: 'black',
     position: 'absolute',
-    top: 15,
-    right:"30%"
+    top: hp(3),
+    right:hp(15)
   
   },
   ImgSearch: {
-    width:'60%',
+    width:wp('50%'),
     position:'relative',
-    right:280,
-    top:280,
+    right:wp(80),
+    top:hp(40),
     },
 });
 

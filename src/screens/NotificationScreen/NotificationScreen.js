@@ -25,6 +25,8 @@ import Img11 from '../../assets/images/11.png';
 import {useTranslation} from 'react-i18next';
 
 
+import {widthPercentageToDP as wp , heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 const VirtualizedList = ({children}) => {
 
   return (
@@ -171,53 +173,54 @@ const styles = StyleSheet.create({
 
   Notification: {
     fontWeight: 'bold',
-    fontSize: 23,
+    fontSize: wp(5),
     color: 'black',
     position: 'absolute',
-    top: 15,
-    left: 140,
+    top: hp(2),
+    left: wp(35),
   },
   boxes: {
     width: '93%',
-    marginTop: 70,
-    marginLeft: 13,
+    marginTop: hp(9),
+    marginLeft: wp(2),
   },
 
   box: {
     backgroundColor: 'white',
-    height: 90,
-    elevation: 20,
-    margin: 6,
-    padding: 10,
-    borderRadius: 10,
+    height: hp(12),
+    elevation: hp(2),
+    margin: wp(1),
+    padding: wp(11),
+    borderRadius: wp(3),
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
   },
   mealImage: {
     borderColor: 'red',
-    borderWidth: 1,
-    borderRadius: 15,
-    height: 80,
-    marginBottom: 50,
-    width: 90,
+    borderWidth: wp(0.2),
+    borderRadius: wp(3),
+    height: hp(11),
+    marginBottom: hp(6),
+    width: wp(23),
     position: 'relative',
-    top: 25,
-    left: 135,
+    top: hp(3),
+    left: wp(32),
   },
   Bug: {
     fontWeight: 'bold',
-    fontSize: 22,
+    fontSize: wp(5),
     color: 'black',
     position: 'absolute',
-    top:5,
-    left:10
+    top:hp(1),
+    left:wp(3),
+
   },
   Btn:{
     position:'absolute',
-    top:45,
-    left:10,
-    width:'48%',
+    top:hp(6),
+    left:wp(3),
+    width:wp('28%'),
   },
 });
 
